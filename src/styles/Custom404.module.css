@@ -1,0 +1,10 @@
+.container {
+    height: 100%;
+    text-align: center;
+    color: darkgray;
+    vertical-align: middle;
+    padding: 70px 0;
+}
+.title {
+    font-size: 5rem;
+}
