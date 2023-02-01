@@ -7,7 +7,7 @@ const TodoCSR = () => {
   return (
     <QueryClientProvider client={querylient}>
       <Todo />
-    </QueryClientProvider >
+    </QueryClientProvider>
   )
 }
 
