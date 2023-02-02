@@ -9,7 +9,7 @@ const Todos = ({ data }) => {
       {data && data.map((t, i) =>
         <div key={i}>
           <p>{t?.title}</p>
-          <img src={t?.thumbnailUrl} />
+          <img src={t?.thumbnailUrl} loading='lazy' />
         </div>
       )}
       <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed sint aliquam commodi, dolorum cum error natus mollitia. Eaque culpa ab dicta cum iure recusandae sunt assumenda fugiat minima, eum provident!</div>
