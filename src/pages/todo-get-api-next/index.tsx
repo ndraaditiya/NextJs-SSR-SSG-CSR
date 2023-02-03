@@ -102,7 +102,7 @@ const Todos = ({ data }: any) => {
 export default Todos
 
 export async function getServerSideProps() {
-  const res = await fetch('/api/todos')
+  const res = await fetch('https://next-js-ssr-ssg-csr.vercel.app/api/todos')
   const { data } = await res.json()
 
   return { props: { data } }
