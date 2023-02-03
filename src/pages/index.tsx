@@ -43,7 +43,7 @@ export default function Home() {
           <button className={styles.link}>Go To SSG Page</button>
         </Link>
         <Link href={`/todo-csr`}>
-          <button className={styles.link}>Go To CSR Page with React-Query</button>
+          <button className={styles.link}>Go To CSR Page with React-Query <br /> with signal cancellation</button>
         </Link>
         <Link href={`/todo-csr-no-rq`}>
           <button className={styles.link}>Go To CSR Page without React-Query <br /> with Image Optimization from Next Js</button>
