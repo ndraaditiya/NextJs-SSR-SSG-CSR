@@ -1,24 +1,21 @@
-import { useQuery } from '@tanstack/react-query'
-import { useRouter } from 'next/router'
+import { Todo } from "@/interfaces"
+import { useRouter } from "next/router"
 
-const Todo = () => {
+const Todos = ({ data }: any) => {
   const router = useRouter()
-  const { data: photos, isLoading } = useQuery(['photos'], async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/photos')
-    return res.json()
-  })
-
-  if (isLoading) return <p>Loading..</p>
 
   return (
     <div>
       <button onClick={() => router.back()}>Back</button>
-      {photos && photos.map((d, i) =>
+      {data && data.map((t: Todo, i: number) => (
         <div key={i}>
-          <p>{d?.title}</p>
-          <img src={d?.thumbnailUrl} loading='lazy' />
+          <p>
+            <span>{t.todoName}</span>
+            <span>({String(t.isComplete)})</span>
+          </p>
         </div>
-      )}
+      ))}
+      <br />
       <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed sint aliquam commodi, dolorum cum error natus mollitia. Eaque culpa ab dicta cum iure recusandae sunt assumenda fugiat minima, eum provident!</div>
       <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed sint aliquam commodi, dolorum cum error natus mollitia. Eaque culpa ab dicta cum iure recusandae sunt assumenda fugiat minima, eum provident!</div>
       <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed sint aliquam commodi, dolorum cum error natus mollitia. Eaque culpa ab dicta cum iure recusandae sunt assumenda fugiat minima, eum provident!</div>
@@ -102,4 +99,11 @@ const Todo = () => {
   )
 }
 
-export default Todo
+export default Todos
+
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/todos')
+  const { data } = await res.json()
+
+  return { props: { data } }
+}

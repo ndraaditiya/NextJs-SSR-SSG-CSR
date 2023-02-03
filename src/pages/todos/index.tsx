@@ -1,27 +1,16 @@
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { Photos } from "@/interfaces"
+import { useRouter } from "next/router"
 
-const Todo = () => {
+const Todos = ({ data }: any) => {
   const router = useRouter()
-  const [photos, setPhotos] = useState([])
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/photos')
-      .then((res) => res.json())
-      .then((data) => setPhotos(data))
-
-    return () => {
-      setPhotos([])
-    }
-  }, [])
 
   return (
     <div>
       <button onClick={() => router.back()}>Back</button>
-      {photos && photos.map((d, i) =>
+      {data && data.map((t: Photos, i: number) =>
         <div key={i}>
-          <p>{d?.title}</p>
-          <img src={d?.thumbnailUrl} loading='lazy' />
+          <p>{t?.title}</p>
+          <img src={t?.thumbnailUrl} loading='lazy' />
         </div>
       )}
       <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed sint aliquam commodi, dolorum cum error natus mollitia. Eaque culpa ab dicta cum iure recusandae sunt assumenda fugiat minima, eum provident!</div>
@@ -107,4 +96,12 @@ const Todo = () => {
   )
 }
 
-export default Todo
+export default Todos
+
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/todos')
+  // const res = await fetch('https://jsonplaceholder.typicode.com/photos')
+  const { data } = await res.json()
+
+  return { props: { data } }
+}

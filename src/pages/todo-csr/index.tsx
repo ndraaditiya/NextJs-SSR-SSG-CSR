@@ -1,3 +1,4 @@
+import Layout from '@/layout'
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import Todo from './Todo'
 
@@ -5,9 +6,12 @@ const querylient = new QueryClient()
 
 const TodoCSR = () => {
   return (
-    <QueryClientProvider client={querylient}>
+    // <QueryClientProvider client={querylient}>
+    <Layout>
       <Todo />
-    </QueryClientProvider>
+    </Layout>
+
+    // </QueryClientProvider>
   )
 }
 

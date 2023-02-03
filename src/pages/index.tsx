@@ -36,6 +36,9 @@ export default function Home() {
         <Link href={`/todos`}>
           <button>Go To SSR Page</button>
         </Link>
+        <Link href={`/todo-get-api-next`}>
+          <button>Go To SSR Page With Get API from Local Next Js</button>
+        </Link>
         <Link href={`/todo-ssg`}>
           <button>Go To SSG Page</button>
         </Link>
