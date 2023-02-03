@@ -34,19 +34,19 @@ export default function Home() {
           </Link>
         </div>
         <Link href={`/todos`}>
-          <button>Go To SSR Page</button>
+          <button className={styles.link}>Go To SSR Page <br />with Image Optimization from Next Js</button>
         </Link>
         <Link href={`/todo-get-api-next`}>
-          <button>Go To SSR Page With Get API from Local Next Js</button>
+          <button className={styles.link}>Go To SSR Page<br /> With Get API from Local Next Js</button>
         </Link>
         <Link href={`/todo-ssg`}>
-          <button>Go To SSG Page</button>
+          <button className={styles.link}>Go To SSG Page</button>
         </Link>
         <Link href={`/todo-csr`}>
-          <button>Go To CSR Page with React-Query</button>
+          <button className={styles.link}>Go To CSR Page with React-Query</button>
         </Link>
         <Link href={`/todo-csr-no-rq`}>
-          <button>Go To CSR Page without React-Query</button>
+          <button className={styles.link}>Go To CSR Page without React-Query <br /> with Image Optimization from Next Js</button>
         </Link>
       </main>
     </>

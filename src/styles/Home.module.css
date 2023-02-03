@@ -7,6 +7,23 @@
   min-height: 100vh;
 }
 
+.link {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  background: slateblue;
+  color: #fff;
+  font-size: .9em;
+  font-weight: 600;
+  transition: all .5s ease-in-out;
+}
+
+.link:hover {
+  background: none;
+  color: slateblue;
+  cursor: pointer;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
