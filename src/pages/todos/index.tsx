@@ -99,9 +99,8 @@ const Todos = ({ data }: any) => {
 export default Todos
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/todos')
-  // const res = await fetch('https://jsonplaceholder.typicode.com/photos')
-  const { data } = await res.json()
+  const res = await fetch('https://jsonplaceholder.typicode.com/photos')
+  const data = await res.json()
 
   return { props: { data } }
 }
