@@ -1,12 +1,13 @@
+import { Photos } from "@/interfaces"
 import { useRouter } from "next/router"
 
-const Todos = ({ data }) => {
+const Todos = ({ data }: any) => {
   const router = useRouter()
 
   return (
     <div>
       <button onClick={() => router.back()}>Back</button>
-      {data && data.map((t, i) =>
+      {data && data.map((t: Photos, i: number) =>
         <div key={i}>
           <p>{t?.title}</p>
           <img src={t?.thumbnailUrl} loading='lazy' />
