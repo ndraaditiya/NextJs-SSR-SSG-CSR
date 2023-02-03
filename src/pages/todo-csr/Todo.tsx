@@ -5,8 +5,8 @@ import { useRouter } from 'next/router'
 
 const Todo = () => {
   const router = useRouter()
-  const { data: photos, isLoading } = useQuery(['photos'], async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/photos')
+  const { data: photos, isLoading } = useQuery(['photos'], async ({ signal }) => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/photos', { signal })
     return res.json()
   })
 

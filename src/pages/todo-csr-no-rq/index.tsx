@@ -23,7 +23,7 @@ const Todo = () => {
       {photos && photos.map((d: Photos, i: number) =>
         <div key={i}>
           <p>{d?.title}</p>
-          <Image src={d?.thumbnailUrl} alt={d?.title} />
+          <Image src={d?.thumbnailUrl} alt={d?.title} loading='lazy' width={150} height={150} />
           {/* <img src={d?.thumbnailUrl} loading='lazy' /> */}
         </div>
       )}

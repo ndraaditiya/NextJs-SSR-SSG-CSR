@@ -11,7 +11,7 @@ const Todos = ({ data }: any) => {
       {data && data.map((t: Photos, i: number) =>
         <div key={i}>
           <p>{t?.title}</p>
-          <Image src={t?.thumbnailUrl} alt={t?.title} />
+          <Image src={t?.thumbnailUrl} alt={t?.title} loading='lazy' width={150} height={150} />
           {/* <img src={t?.thumbnailUrl} loading='lazy' /> */}
         </div>
       )}
