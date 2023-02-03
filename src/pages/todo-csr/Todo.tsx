@@ -10,12 +10,15 @@ const Todo = () => {
     return res.json()
   })
 
-  if (isLoading) return <p>Loading..</p>
+  // if (isLoading) return <p>Loading..</p>
 
   return (
     <div>
       <Layout>
         <button onClick={() => router.back()}>Back</button>
+        <br />
+        {isLoading && <p>Fetching Data...</p>}
+        <br />
         {photos && photos.map((d: Photos, i: number) =>
           <div key={i}>
             <p>{d?.title}</p>
